@@ -114,12 +114,29 @@
         </div>
     </section>
     
+    <section>
+            {% for message in messages%}
+
+            <div class="alert alert-success">
+                <div class="container">
+                    <div class="d-flex">
+                      <div class="alert-icon">
+                        <i class="ion-ios-information-circle-outline"></i>
+                      </div>
+                      <p class="mb-0 ml-2"><b>Alert:</b> {{message}}</p>
+                  </div>
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true"><i class="ion-ios-close"></i></span>
+                  </button>
+                </div>
+              </div>
+
+
+            {% endfor %}
+    </section>
 <!--SIGNUP FORM -->
     <section>
-     
-<!------ Include the above in your HEAD tag ---------->
-
-<div class="container register">
+     <div class="container register">
                 <div class="row">
                     <div class="col-md-3 register-left">
                         <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
@@ -141,58 +158,58 @@
                                 <h3 class="register-heading">Sign Up Now !</h3>
                                 <div class="row register-form">
                                     <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="First Name *" value="" />
+
+                                <form action="signup" method="POST">
+                                {% csrf_token %}
+
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" name="first_name" placeholder="First Name "  />
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" name="last_name" placeholder="Last Name " value="" />
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="password" class="form-control" name="password1" placeholder="Password " value="" />
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="password" class="form-control" name="password2" placeholder="Confirm Password "/>
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Last Name *" value="" />
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="email" class="form-control" name="email" placeholder="Your Email"  />
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" name="username" placeholder="username"  />
+                                            </div>
+                                            <input type="submit" class="btnRegister"  value="Register"/>
                                         </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control" placeholder="Password *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control"  placeholder="Confirm Password *" value="" />
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="email" class="form-control" placeholder="Your Email *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <select class="form-control">
-                                                <option class="hidden"  selected disabled>Please select your Sequrity Question</option>
-                                                <option>What is your Birthdate?</option>
-                                                <option>What is Your old Phone Number</option>
-                                                <option>What is your Pet Name?</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Enter Your Answer *" value="" />
-                                        </div>
-                                        <input type="submit" class="btnRegister"  value="Register"/>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                <h3  class="register-heading">Login</h3>
-                                <div class="row register-form">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <img src="/static/images/bg_1.jpg" style="width: 300px; height: auto;">
-                                        </div> 
-                                    </div>
-                                
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="email" value="" />
+
+                            </form>
+
+                                <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                    <h3  class="register-heading">Login</h3>
+                                    <div class="row register-form">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <img src="/static/images/bg_1.jpg" style="width: 300px; height: auto;">
+                                            </div> 
                                         </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control" placeholder="Password" value="" />
+                                    
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="email" value="" />
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="password" class="form-control" placeholder="Password" value="" />
+                                            </div>
+                                            <input type="submit" class="btnRegister"  value="Login"/>
                                         </div>
-                                        <input type="submit" class="btnRegister"  value="Login"/>
-                                    </div>
+                                    __</div>
                                 </div>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
