@@ -35,3 +35,24 @@ def signup(request):
     
     else:
         return render(request, 'signup.html')
+
+    
+def login(request):
+
+    if request.method == "POST":
+
+        username=request.POST['username']
+        password = request.POST['password']
+
+        user = auth.authenticate(username=username, password=password)
+        
+        if user is not None:
+            auth.login(request, user)
+            messages.info(request, "Login Done")
+            return redirect('/usersreg')
+        else:
+            messages.info(request, "Wrong Password or Username")
+            return render(request, 'signup.html')
+    
+    else:
+        return render(request, "signup.html")
