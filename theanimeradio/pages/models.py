@@ -4,6 +4,7 @@ from django.db import models
 class List2018(models.Model):
 
     name = models.CharField(max_length=300)
+    anime_id = models.IntegerField(default=10)
     summary = models.TextField(default="I am summary")
     no_of_episodes = models.IntegerField(default=100)
     dubbing= models.BooleanField(default=False)
@@ -17,3 +18,6 @@ class List2018(models.Model):
 
 
 
+class Votes(models.Model):
+  anime_id = models.IntegerField(default=0)
+  user_id = models.IntegerField(default=0)
