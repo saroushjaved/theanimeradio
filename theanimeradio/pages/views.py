@@ -36,7 +36,7 @@ def list2018(request):
                     messages.info(request, "YOU HAVE UP VOTED {}".format(up_vote))
                     return render(request, 'list2018.html',{'list_2018':list1})
                 elif down_vote is not None:
-                    messages.info(request, "YOU HAVE DOWN VOTED {}".format(down_vote))
+                    messages.info(request, "YOU HAVE DOWN VOTED")
                     List2018.objects.filter(name=down_vote).update(down_votes=F("down_votes")+1)
                     return render(request, 'list2018.html',{'list_2018':list1})
 
@@ -48,6 +48,7 @@ def list2018(request):
 
 
 def list2019(request):
+
     list1 = List2019.objects.all().order_by("-up_votes")
 
     if request.method == "POST":
@@ -74,7 +75,7 @@ def list2019(request):
                     messages.info(request, "YOU HAVE UP VOTED {}".format(up_vote))
                     return render(request, 'list2019.html',{'list_2019':list1})
                 elif down_vote is not None:
-                    messages.info(request, "YOU HAVE DOWN VOTED {}".format(down_vote))
+                    messages.info(request, "YOU HAVE DOWN VOTED")
                     List2019.objects.filter(name=down_vote).update(down_votes=F("down_votes")+1)
                     return render(request, 'list2019.html',{'list_2018':list1})
 
@@ -83,3 +84,13 @@ def list2019(request):
                 return render(request, 'list2019.html',{'list_2019':list1})
     else:    
         return render(request, 'list2019.html',{'list_2019':list1})
+
+
+def summer2020(request):
+    return render(request, "summer2020.html")
+
+def winter2020(request):
+    return render(request, "winter2020.html")
+
+def spring2020(request):
+    return render(request, "spring2020.html")

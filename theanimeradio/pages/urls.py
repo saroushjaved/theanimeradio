@@ -22,4 +22,7 @@ urlpatterns = [
     path('home', views.home, name="home"),
     path('list2018', views.list2018, name="list2018"),
     path('list2019', views.list2019, name="list2019"),
+    path('summer2020', views.summer2020, name="summer2020"),
+    path('winter2020', views.winter2020, name="winter2020"),
+    path('spring2020', views.spring2020, name="spring2020"),
 ]
