@@ -61,7 +61,7 @@
 	          <li class="nav-item"><a href="#" class="nav-link icon d-flex align-items-center"><i class="ion-logo-twitter"></i></a></li>
             <li class="nav-item"><a href="#" class="nav-link icon d-flex align-items-center"><i class="ion-logo-instagram"></i></a></li>
             {% if user.is_authenticated %}
-            <li class="nav-item"><a href="#" class="nav-link icon d-flex align-items-center">{{user.username}}</a></li>
+            <li class="nav-item"><a href="/usersreg/loginpage" class="nav-link icon d-flex align-items-center">{{user.username}}</a></li>
             {% endif %}
 	        </ul>
 	      </div>
@@ -86,9 +86,6 @@
           </div>
       </footer>
   
-
-  <!-- loader -->
-  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 
   

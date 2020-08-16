@@ -1,6 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from django.contrib import messages
 from django.contrib.auth.models import User, auth
+import requests
+from django.contrib.auth import logout
 
 # Create your views here.
 def signup(request):
@@ -49,10 +51,28 @@ def login(request):
         if user is not None:
             auth.login(request, user)
             messages.info(request, "Login Done")
-            return redirect('/usersreg')
+            return render(request, "login.html")
         else:
             messages.info(request, "Wrong Password or Username")
             return render(request, 'signup.html')
     
     else:
         return render(request, "signup.html")
+
+def loginpage(request):
+    if request.user.is_authenticated:
+        URL = "https://anime-chan.herokuapp.com/api/quotes/random"
+        req = requests.get(url = URL)
+        data = req.json()
+        quote = data[0]['quote']
+        character = data[0]['character']
+        return render(request, 'login.html', {'quote':quote, 'char':character})
+
+    else:
+        return redirect("/usersreg/signup")
+
+
+
+def logout_module(request):
+    logout(request)
+    return render(request, 'index.html')
