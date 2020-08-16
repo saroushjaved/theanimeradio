@@ -77,7 +77,7 @@ def list2019(request):
                 elif down_vote is not None:
                     messages.info(request, "YOU HAVE DOWN VOTED")
                     List2019.objects.filter(name=down_vote).update(down_votes=F("down_votes")+1)
-                    return render(request, 'list2019.html',{'list_2018':list1})
+                    return render(request, 'list2019.html',{'list_2019':list1})
 
             else:
                 messages.info(request, "Login to Vote or Register if you have no account")
