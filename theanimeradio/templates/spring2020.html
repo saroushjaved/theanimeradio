@@ -1,2 +1,80 @@
 {% extends 'list_base.html' %}
 
+{%block content%}
+
+<section class="hero-wrap js-fullheight" style="background-color: #2b0021; max-height:600px;">
+        <div class="container">
+            <div class="row description js-fullheight align-items-center justify-content-center">
+                <div class="col-md-8 text-center" >
+                    <div class="text">
+                        <h1>LIST SPRING 2020</h1>
+                        <h4 class="mb-5">THE BEST LIST ON INTERNET</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <br>
+    <br>
+    
+    <section>
+      {% for message in messages%}
+
+      <div class="alert alert-success">
+          <div class="container">
+              <div class="d-flex">
+                <div class="alert-icon">
+                  <i class="ion-ios-information-circle-outline"></i>
+                </div>
+                <p class="mb-0 ml-2"><b>Alert:</b> {{message}}</p>
+            </div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true"><i class="ion-ios-close"></i></span>
+            </button>
+          </div>
+        </div>
+
+
+      {% endfor %}
+</section>
+
+    {% for items in spring2020 %}
+
+    <section>
+        <div class="container">
+          <div class="card" style="background-color:black;">
+            <div class="row ">
+              <div class="col-md-4">
+                  <img src="{{items.images.url}}" alt="" class="w-100">
+                </div>
+                <div class="col-md-8 px-3">
+                  <div class="card-block px-3">
+                    <h4 class="card-title" style="color:white; font-family: 'Roboto', sans-serif;">{{ forloop.counter }}. {{items.name}}</h4>
+                    <p class="card-text" style="color:white; font-family: 'Roboto', sans-serif;">{{items.summary}}</p>
+                    <p class="card-text" style="color:white; font-family: 'Roboto', sans-serif;"><b>IMDB Rating</b> :  {{items.rating}}</p>
+                    {% if items.dubbing == True %}
+                    <p class="card-text" style="color:white; font-family: 'Roboto', sans-serif;"><b>Dubbed Episodes Avaliable</b></p> 
+                    {% endif %}
+                    <a href="{{items.link_crunchyroll}}" class="btn btn-primary" style="color:orangel; background-color: rgb(202, 58, 5)"><i class="ion-ios-play" ></i>Watch</a>
+                    <a href="{{items.link_imbd}}" class="btn btn-primary" style="background-color: rgb(170, 112, 4);"><i class="ion-ios-pricetag mr-2" ></i>Buy Merchandise</a>
+                    <a href="{{items.line_shop}}" class="btn btn-primary" style="background-color: rgb(211, 179, 0);"><i class="ion-ios-play mr-2"></i>IMDB</a>
+                    <form style="float:inline-end;" action="spring2020" method="POST">
+                      {% csrf_token %}
+                    <button type="submit" name="up_votes" value='{{items.name}}' class="btn-primary" style="background-color:transparent; border-color: transparent;"><i class="ion-ios-arrow-up" style="padding-left:0px; font-size:30px;"> {{items.up_votes}}</i></button>
+                    <button class="btn-primary" name="down_votes" value='{{items.name}}' style="background-color:transparent; border-color: transparent;"><i class="ion-ios-arrow-down" style="padding:50px; font-size:30px;"> {{items.down_votes}}</i></button>
+                    </form>
+                  </div>
+                </div>
+      
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    
+      <br> 
+
+      {% endfor %}
+   
+   {%endblock%}

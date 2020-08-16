@@ -43,7 +43,7 @@ class List2020(models.Model):
     link_crunchyroll= models.URLField(max_length=200)
     link_imdb= models.URLField(max_length=200)
     link_shop= models.URLField(max_length=200)
-    season = models.TextField(max_length=10)
+    season = models.CharField(max_length=10)
     up_votes = models.IntegerField(default=10)
     down_votes = models.IntegerField(default=10)
 
