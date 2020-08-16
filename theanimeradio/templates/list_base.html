@@ -58,12 +58,12 @@
               </div>
 			</li>
 			  <li class="nav-item"><a href="#" class="nav-link icon d-flex align-items-center"><i class="ion-ios-cloud-download mr-2"></i>Recommendation</a></li>
-			  <li class="nav-item"><a href="/usersreg/signup" class="nav-link icon d-flex align-items-center"><i class="ion-ios-arrow-dropright-circle mr-2"></i>Sign Up</a></li>
+			  <li class="nav-item"><a href="/usersreg/signup" class="nav-link icon d-flex align-items-center"><i class="ion-ios-arrow-dropright-circle mr-2"></i>Login</a></li>
 	          <li class="nav-item"><a href="#" class="nav-link icon d-flex align-items-center"><i class="ion-logo-facebook"></i></a></li>
 	          <li class="nav-item"><a href="#" class="nav-link icon d-flex align-items-center"><i class="ion-logo-twitter"></i></a></li>
             <li class="nav-item"><a href="#" class="nav-link icon d-flex align-items-center"><i class="ion-logo-instagram"></i></a></li>
             {% if user.is_authenticated %}
-            <li class="nav-item"><a href="#" class="nav-link icon d-flex align-items-center">{{user.username}}</a></li>
+            <li class="nav-item"><a href="/usersreg/loginpage"  class="nav-link icon d-flex align-items-center">{{user.username}}</a></li>
             {% endif %}
 	        </ul>
 	      </div>
