@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -139,8 +140,8 @@
      <div class="container register">
                 <div class="row">
                     <div class="col-md-3 register-left">
-                        <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
-                        <h3 style="font-family:'Roboto'; color:white;">Welcome</h3>
+                        <img src="{% static 'images/mascot.png'%}" style="width:50%; height:auto;"alt="mascot"/>
+                        <h3 style="font-family:'Roboto'; color:white;">Konnichiwa</h3>
                         <p>Register to land in the epic world of anime with us. Get latest news , memes and much more.</p>
                         <input type="submit" name="" value="Login"/><br/>
                     </div>
@@ -198,7 +199,7 @@
                                         <div class="row register-form">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <img src="/static/images/bg_1.jpg" style="width: 300px; height: auto;">
+                                                    <img src="/static/images/mascot.png" style="width: 300px; height: auto;">
                                                 </div> 
                                             </div>
                                         
