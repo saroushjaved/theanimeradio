@@ -1,0 +1,36 @@
+{% extends 'reccomendation_base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="hero-wrap js-fullheight" style="background-color: black;">
+    <div class="container">
+  			<div class="row description js-fullheight align-items-center justify-content-center">
+  				<div class="col-md-8 text-center">
+  					<div class="text">
+        <h1 style="font-size:35px; font-family:monospace; text-align:center; padding-bottom:20px;">Since when did you started watching anime ?</h2>
+        			</div>
+                    <form action="recc4">
+                    <div class="row">
+                        <div class="col">
+                         <button type="submit" name ="answer4" value=1>
+                            <img src="{% static 'images/before2010.png' %}" alt="before 2010" style="width:100%">
+                        </div></button>
+                        <div class="col">
+                          <button type="submit" name="answer4" value=0>
+                            <img src="{% static 'images/after2010.png' %}" alt="after 2010" style="width:100%"> 
+                        </div></button>
+                     </div> 
+                    </form>
+  				</div>
+  			</div>		
+    </div>
+
+  
+</section>
+
+  
+ 
+
+
+
+{% endblock %}

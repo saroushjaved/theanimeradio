@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     #ownaps
     'pages.apps.PagesConfig',
     'usersreg.apps.UsersregConfig',
+    'reccomendationengine.apps.ReccomendationengineConfig',
 ]
 
 MIDDLEWARE = [
