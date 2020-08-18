@@ -51,16 +51,17 @@ def genre_before_2010(requests):
     genre = requests.GET['answer_before_genre']
     
     if  genre == 1: #will have further subcateogries
-    
+       pass
     elif genre ==2: #No Sub categories
-
+        pass
     elif genre ==3: # Wil have further subcateogies
-    
+        pass
     elif genre ==4: # Sports
-    
+        pass
     elif genre ==5: # Comedy
-
+        pass
     elif genre ==6: # Will have further subcateogires
+        pass
     return render(requests, 'index.html')
    
 
@@ -69,15 +70,16 @@ def genre_after_2010(requests):
     genre = requests.GET['answer_after_genre']
     
     if  genre == 1: #will have further subcateogries
-    
+        pass
     elif genre ==2: #No Sub categories
-
+        pass
     elif genre ==3: # Wil have further subcateogies
-    
+        pass
     elif genre ==4: # Sports
-    
+        pass
     elif genre ==5: # Comedy
-
+        pass
     elif genre ==6: # Will have further subcateogires
+        pass
     return render(requests, 'index.html')
     
