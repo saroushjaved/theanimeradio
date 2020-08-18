@@ -1,1 +1,63 @@
-AFTER 2020
+{% extends 'reccomendation_base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="hero-wrap js-fullheight" style="background-color: black;">
+    
+  			<div class="row description js-fullheight align-items-center justify-content-center">
+  				<div class="col-md-8 text-center">
+  					<div class="text">
+        <h1 style="font-size:35px; font-family:monospace; text-align:center; padding-bottom:20px;">Select and Anime Genre ?</h2>
+        			</div>
+                    <form action="genre_after_2010">
+                    <div class="row">
+                        <div class="col">
+                         <button type="submit" name="answer_after_genre" value=1>
+                            <img src="{% static 'images/9.png' %}" alt="after 2010" style="width:100%"> 
+                            </button>
+                        </div>
+
+                        <div class="col">
+                         <button type="submit" name="answer_after_genre" value=2>
+                            <img src="{% static 'images/10.png' %}" alt="after 2010" style="width:100%"> 
+                            </button>
+                           
+                        </div>
+                        
+                           <div class="col">
+                         <button type="submit" name="answer_after_genre" value=3>
+                            <img src="{% static 'images/11.png' %}" alt="after 2010" style="width:100%"> 
+                            </button>
+                        </div>
+
+                        <div class="col">
+                         <button type="submit" name="answer_after_genre" value=4>
+                            <img src="{% static 'images/12.png' %}" alt="after 2010" style="width:100%"> 
+                            </button>
+                        </div>
+
+                        <div class="col">
+                         <button type="submit" name="answer_after_genre" value=5>
+                            <img src="{% static 'images/13.png' %}" alt="after 2010" style="width:100%"> 
+                            </button>
+                        </div>
+
+                        <div class="col">
+                          <button type="submit" name="answer_after_genre" value=6>
+                            <img src="{% static 'images/14.png' %}" alt="after 2010" style="width:100%"> 
+                            </button>
+                        </div>
+                        </div>
+                    </div>
+                </div> 
+            </form>
+  		</div>
+  	</div>		
+</section>
+
+  
+ 
+
+
+
+{% endblock %}
