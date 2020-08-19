@@ -1,0 +1,35 @@
+{% extends 'reccomendation_base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="ftco-section ftco-section-2 bg-dark;" id="cards" style="background-color:black";>
+    <div class="container">
+                <div class="text">
+                <h1 style="font-size:35px; color:white; font-family:monospace; text-align:center; padding-bottom:20px;">Select Shonin Anime Genre ?</h2>
+                </div>
+
+                <form action={{age}}>
+                <div class="row">
+                        <div class="col-md-4">
+                         <button type="submit" name="answer_shonin_genre" value=1>
+                            <img src="{% static 'images/21.png' %}" alt="after 2010" style="width:100%; height:auto;"> 
+                            </button>
+                        </div>
+
+
+                        <div class="col-md-4">
+                         <button type="submit" name="answer_shonin_genre" value=2>
+                            <img src="{% static 'images/22.png' %}" width="100%%" ></button>  
+                        </div> 
+
+                        <div class="col-md-4">
+                         <button type="submit" name="answer_shonin_genre" value=3>
+                            <img src="{% static 'images/other.png' %}" alt="after 2010" style="width:100%"> 
+                        
+                        </div>
+            </form>
+  	</div>		
+</section>
+
+  
+{% endblock %}

@@ -1,1 +1,49 @@
 {% extends 'reccomendation_base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="ftco-section ftco-section-2 bg-dark;" style="background-color:black";>
+    <div class="container">
+    <h1 style="color:white; font-family: Comic Sans MS, cursive, sans-serif; text-align:center;"> Recommendation for you </h1>
+    <h1 style="color:white; font-family: monospace; text-align:center;">{{anime.name}}</h1>
+    <br>
+    <div style="text-align:center;">
+    <img src="{{anime.image.url}}" style="width:25%; height:auto;">
+    </div>
+    <div style="text-align:center; padding:10px;"> 
+    <a href="{{anime.crunchyroll}}" class="btn btn-warning" style="color:black;">WATCH NOW</a>
+    <a href="{{anime.info}}" class="btn btn-info">More Details</a>
+    </div>
+    <br>
+    <div>
+    <h2 style="color:white;">Rating IMBD: {{anime.imdb}} </h2>
+    <h2 style="color:white;" >Summary: </h2>
+    <p>{{anime.summary}}</p>
+    </div>
+</section>
+
+<section class="ftco-section ftco-section-2 bg-white" id="cards">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h2 class="heading-section mb-4 pb-md-3">
+							<b>More Recommendations</b>
+						</h2>
+					</div>
+				</div>
+				<div class="row">
+
+                {% for  items in anime_list  %}
+
+					<div class="col-md-4">
+						<div class="card">
+						  <img src="{{items.image.url}}" class="card-img-top" alt="...">
+						</div>
+					</div>
+
+                {% endfor %}
+
+				</div>
+			</div>
+	  </section>
+{% endblock %}

@@ -28,5 +28,9 @@ urlpatterns = [
     path('genre_after_2010', views.genre_after_2010, name="genre_after_2010"),
     path('sliceoflife_after_2010', views.sliceoflife_after_2010, name="sliceoflife_after_2010"),
     path('sliceoflife_before_2010', views.sliceoflife_before_2010, name="sliceoflife_before_2010"),
-    
+    path('isekai_after_2010', views.isekai_after_2010, name="isekai_after_2010"),
+    path('isekai_before_2010', views.isekai_before_2010, name="isekai_before_2010"),
+    path('shonin_after_2010', views.shonin_after_2010, name="shonin_after_2010"),
+    path('shonin_before_2010', views.shonin_before_2010, name="shonin_before_2010"),
+
 ]
