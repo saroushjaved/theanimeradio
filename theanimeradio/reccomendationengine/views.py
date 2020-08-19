@@ -46,40 +46,66 @@ def recc4(request):
         #genre will be showed after 2020
         return render(request, 'recc_genre_after_2020.html')
 
-def genre_before_2010(requests):
+def genre_before_2010(request):
     #received the answer on genre 
-    genre = requests.GET['answer_before_genre']
-    
-    if  genre == 1: #will have further subcateogries
-       pass
-    elif genre ==2: #No Sub categories
+    genre = request.GET['answer_before_genre']
+
+    # 1- SLICE OF LIFE
+    # 2- Dark and Fantasy
+    # 3- ISIKAI
+    # 4- SPORTS
+    # 5- Comedy 
+    # 6- Shonin 
+
+    if  genre =="1": #will have further subcateogries
+        return render(request, 'slice_of_life_before_2010.html')
+    elif genre =="2": #No Sub categories
         pass
-    elif genre ==3: # Wil have further subcateogies
+    elif genre =="3": # Wil have further subcateogies
         pass
-    elif genre ==4: # Sports
+    elif genre =="4": # Sports
         pass
-    elif genre ==5: # Comedy
+    elif genre =="5": # Comedy
         pass
-    elif genre ==6: # Will have further subcateogires
+    elif genre =="6": # Will have further subcateogires
         pass
-    return render(requests, 'index.html')
+    else:
+        pass
    
 
-def genre_after_2010(requests):
+def genre_after_2010(request):
     #received the answer on genre 
-    genre = requests.GET['answer_after_genre']
+    genre = request.GET['answer_after_genre']
+
+    # 1- SLICE OF LIFE
+    # 2- Dark and Fantasy
+    # 3- ISIKAI
+    # 4- SPORTS
+    # 5- Comedy 
+    # 6- Shonin
+
+    if  genre == "1": #will have further subcateogries
+         return render(request, 'slice_of_life_after_2010.html')
+    elif genre == "2": #No Sub categories
+        pass
+    elif genre == "3": # Wil have further subcateogies
+        pass
+    elif genre == "4": # Sports
+        pass
+    elif genre == "5": # Comedy
+        pass
+    elif genre == "6": # Will have further subcateogires
+        pass
     
-    if  genre == 1: #will have further subcateogries
-        pass
-    elif genre ==2: #No Sub categories
-        pass
-    elif genre ==3: # Wil have further subcateogies
-        pass
-    elif genre ==4: # Sports
-        pass
-    elif genre ==5: # Comedy
-        pass
-    elif genre ==6: # Will have further subcateogires
-        pass
-    return render(requests, 'index.html')
-    
+
+
+
+def sliceoflife_before_2010(requests):
+    pass
+def sliceoflife_after_2010(requests):
+    pass
+
+
+
+
+

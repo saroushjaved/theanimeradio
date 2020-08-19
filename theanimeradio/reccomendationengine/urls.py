@@ -26,5 +26,7 @@ urlpatterns = [
     path('recc4', views.recc4, name="reccomendatio-question-4"),
     path('genre_before_2010', views.genre_before_2010, name="genre_before_2010"),
     path('genre_after_2010', views.genre_after_2010, name="genre_after_2010"),
+    path('sliceoflife_after_2010', views.sliceoflife_after_2010, name="sliceoflife_after_2010"),
+    path('sliceoflife_before_2010', views.sliceoflife_before_2010, name="sliceoflife_before_2010"),
     
 ]
