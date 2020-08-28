@@ -79,14 +79,15 @@ WSGI_APPLICATION = 'theanimeradio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'theanimeradio',
         'USER': 'soroush',
-        'PASSWORD': 'amharmah2646',
+        'PASSWORD': 'amharmah26',
         'HOST': 'localhost',
-        'PORT': '5432',
+        'PORT': '',
     }
 }
 
