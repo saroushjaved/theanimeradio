@@ -73,7 +73,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'theanimeradio.wsgi'
+WSGI_APPLICATION = 'theanimeradio.wsgi:application'
 
 
 # Database
