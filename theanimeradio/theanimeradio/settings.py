@@ -85,7 +85,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'theanimeradio',
         'USER': 'soroush',
-        'PASSWORD': 'amharmah26',
+        'PASSWORD': 'amharmah2646',
         'HOST': 'localhost',
         'PORT': '',
     }
