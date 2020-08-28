@@ -5,8 +5,8 @@ After=network.target
 [Service]
 User=soroush
 Group=www-data
-WorkingDirectory=/home/soroush/django-project
-ExecStart=/home/soroush/django-project/djangoprojectenv/bin/gunicorn --access-logfile - --workers 3 --bind unix:/home/soroush/django-project/theanimeradio.sock theanimeradio.wsgi:application
+WorkingDirectory=/home/soroush/django-project/theanimeradio
+ExecStart=/home/soroush/django-project/djangoprojectenv/bin/gunicorn --access-logfile - --workers 3 --bind unix:/home/soroush/django-project/theanimeradio.sock theanimeradio.wsgi.application
 
 [Install]
 WantedBy=multi-user.target
