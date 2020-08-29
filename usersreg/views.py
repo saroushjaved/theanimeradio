@@ -61,12 +61,7 @@ def login(request):
 
 def loginpage(request):
     if request.user.is_authenticated:
-        URL = "https://anime-chan.herokuapp.com/api/quotes/random"
-        req = requests.get(url = URL)
-        data = req.json()
-        quote = data[0]['quote']
-        character = data[0]['character']
-        return render(request, 'login.html', {'quote':quote, 'char':character})
+        return render(request, 'login.html')
 
     else:
         return redirect("/usersreg/signup")
