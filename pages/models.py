@@ -50,4 +50,4 @@ class List2020(models.Model):
 
 class Votes(models.Model):
   anime_id = models.IntegerField(default=0)
-  user_id = models.IntegerField(default=0)
+  user_id = models.IntegerField(default=0, null=True)

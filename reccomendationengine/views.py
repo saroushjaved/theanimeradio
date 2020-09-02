@@ -233,7 +233,7 @@ def isekai_before_2010(request):
     # 2- Main Stream
     isi_genre = request.GET["answer_isekai_genre"]
 
-    if isi_genre  == "isi_genre ":
+    if isi_genre  == "1":
         anime_data =list( RecommendationDatabase.objects.filter(genre="isekai", sub_genre="underrated", Year2010=True))
         anime = random.choice(anime_data)
         anime_list = random.sample(anime_data, 3)
@@ -249,7 +249,7 @@ def isekai_after_2010(request):
     # 2- Main Stream
     isi_genre = request.GET["answer_isekai_genre"]
 
-    if isi_genre  == "isi_genre ":
+    if isi_genre  == "1":
         anime_data =list( RecommendationDatabase.objects.filter(genre="isekai", sub_genre="underrated"))
         anime = random.choice(anime_data)
         anime_list = random.sample(anime_data, 3)
@@ -295,7 +295,7 @@ def shonin_before_2010(request):
         anime_list = random.sample(anime_data, 3)
         return render(request, 'anime_recc_template.html', {"anime":anime, "anime_list":anime_list})
     elif shonin_genre == "2":
-        anime_data =list( RecommendationDatabase.objects.filter(genre="isekai", sub_genre="mainstream"))
+        anime_data =list( RecommendationDatabase.objects.filter(genre="shonin", sub_genre="mainstream"))
         anime = random.choice(anime_data)
         anime_list = random.sample(anime_data, 3)
         return render(request, 'anime_recc_template.html', {"anime":anime, "anime_list":anime_list})

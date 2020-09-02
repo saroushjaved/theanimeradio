@@ -16,7 +16,12 @@ def list2018(request):
         up_vote = request.POST.get('up_votes', None)
         down_vote = request.POST.get('down_votes', None)
         userid = request.user.id
-
+        
+        if userid == None:
+        	userid = 0
+        else:
+            pass 
+        
         if up_vote != None:
             anime= List2018.objects.get(name=up_vote)
             animeid = anime.anime_id
@@ -55,7 +60,12 @@ def list2019(request):
         up_vote = request.POST.get('up_votes', None)
         down_vote = request.POST.get('down_votes', None)
         userid = request.user.id
-
+        
+        if userid == None:
+        	userid = 0
+        else:
+            pass
+            
         if up_vote != None:
             anime= List2019.objects.get(name=up_vote)
             animeid = anime.anime_id
@@ -93,6 +103,11 @@ def summer2020(request):
         up_vote = request.POST.get('up_votes', None)
         down_vote = request.POST.get('down_votes', None)
         userid = request.user.id
+        
+        if userid == None:
+        	userid = 0
+        else:
+            pass
 
         if up_vote != None:
             anime= List2020.objects.get(name=up_vote)
@@ -130,6 +145,11 @@ def winter2020(request):
         up_vote = request.POST.get('up_votes', None)
         down_vote = request.POST.get('down_votes', None)
         userid = request.user.id
+        
+        if userid == None:
+        	userid = 0
+        else:
+            pass
 
         if up_vote != None:
             anime= List2020.objects.get(name=up_vote)
@@ -169,6 +189,11 @@ def spring2020(request):
         up_vote = request.POST.get('up_votes', None)
         down_vote = request.POST.get('down_votes', None)
         userid = request.user.id
+        
+        if userid == None:
+        	userid = 0
+        else:
+            pass
 
         if up_vote != None:
             anime= List2020.objects.get(name=up_vote)
