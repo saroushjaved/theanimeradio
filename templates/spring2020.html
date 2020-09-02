@@ -57,8 +57,8 @@
                     <p class="card-text" style="color:white; font-family: 'Roboto', sans-serif;"><b>Dubbed Episodes Avaliable</b></p> 
                     {% endif %}
                     <a href="{{items.link_crunchyroll}}" class="btn btn-primary" style="color:orangel; background-color: rgb(202, 58, 5)"><i class="ion-ios-play" ></i>Watch</a>
-                    <a href="{{items.link_imdb}}" class="btn btn-primary" style="background-color: rgb(170, 112, 4);"><i class="ion-ios-pricetag mr-2" ></i>Buy Merchandise</a>
-                    <a href="{{items.line_shop}}" class="btn btn-primary" style="background-color: rgb(211, 179, 0);"><i class="ion-ios-play mr-2"></i>IMDB</a>
+                    <a href="{{items.link_imdb}}" class="btn btn-primary" style="background-color: rgb(170, 112, 4);"><i class="ion-ios-pricetag mr-2" ></i>IMDB</a>
+                    <a href="{{items.link_shop}}" class="btn btn-primary" style="background-color: rgb(211, 179, 0);"><i class="ion-ios-play mr-2"></i>Buy Merchandise</a>
                     <form style="float:inline-end;" action="spring2020" method="POST">
                       {% csrf_token %}
                     <button type="submit" name="up_votes" value='{{items.name}}' class="btn-primary" style="background-color:transparent; border-color: transparent;"><i class="ion-ios-arrow-up" style="padding-left:0px; font-size:30px;"> {{items.up_votes}}</i></button>
