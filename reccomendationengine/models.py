@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 class RecommendationDatabase(models.Model):
     name = models.CharField(max_length=200)
-    imdb = models.IntegerField(default=0)
+    imdb = models.FloatField(default=0)
     image = models.ImageField(upload_to ='animetitles')
     summary = models.TextField()
     Year2010 = models.BooleanField(default=False)
