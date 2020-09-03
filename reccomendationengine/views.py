@@ -273,12 +273,12 @@ def shonin_after_2010(request):
         anime_list = random.sample(anime_data, 3)
         return render(request, 'anime_recc_template.html', {"anime":anime, "anime_list":anime_list})
     elif shonin_genre == "2":
-        anime_data =list( RecommendationDatabase.objects.filter(genre="isekai", sub_genre="mainstream",  Year2010=True))
+        anime_data =list( RecommendationDatabase.objects.filter(genre="shonin", sub_genre="mainstream",  Year2010=True))
         anime = random.choice(anime_data)
         anime_list = random.sample(anime_data, 3)
         return render(request, 'anime_recc_template.html', {"anime":anime, "anime_list":anime_list})
     else:
-        anime_data =list( RecommendationDatabase.objects.filter(genre="isekai", sub_genre="other",  Year2010=True))
+        anime_data =list( RecommendationDatabase.objects.filter(genre="shonin", sub_genre="other",  Year2010=True))
         anime = random.choice(anime_data)
         anime_list = random.sample(anime_data, 3)
         return render(request, 'anime_recc_template.html', {"anime":anime, "anime_list":anime_list})
