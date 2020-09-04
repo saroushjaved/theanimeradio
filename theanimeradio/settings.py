@@ -26,7 +26,7 @@ SECRET_KEY = 'by$-xgev^^y@i@p1gec$1df6+zhqmdiyg1sssnyq13px0h$@sz'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['68.183.141.90', 'betatest.theanimeradio.com', 'www.betatest.theanimeradio.com']
+ALLOWED_HOSTS = ['68.183.141.90', 'www.theanimeradio.com', 'theanimeradio.com']
 
 
 # Application definition
