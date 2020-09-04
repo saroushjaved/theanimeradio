@@ -10,7 +10,7 @@ def home(request):
 
 #LIST PAGE 2018
 def list2018(request):
-    list1 = List2018.objects.all().order_by("-up_votes")
+    list1 = List2018.objects.all().order_by("up_votes")
 
     if request.method == "POST":
         up_vote = request.POST.get('up_votes', None)
