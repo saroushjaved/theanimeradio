@@ -54,7 +54,7 @@ def list2018(request):
 
 def list2019(request):
 
-    list1 = List2019.objects.all().order_by("-up_votes")
+    list1 = List2019.objects.all().order_by("up_votes")
 
     if request.method == "POST":
         up_vote = request.POST.get('up_votes', None)
@@ -97,7 +97,7 @@ def list2019(request):
 
 
 def summer2020(request):
-    list1 = List2020.objects.filter(season="summer").order_by("-up_votes")
+    list1 = List2020.objects.filter(season="summer").order_by("up_votes")
 
     if request.method == "POST":
         up_vote = request.POST.get('up_votes', None)
@@ -139,7 +139,7 @@ def summer2020(request):
         return render(request, 'summer2020.html',{'summer2020':list1})
 
 def winter2020(request):
-    list1 = List2020.objects.filter(season="winter").order_by("-up_votes")
+    list1 = List2020.objects.filter(season="winter").order_by("up_votes")
 
     if request.method == "POST":
         up_vote = request.POST.get('up_votes', None)
@@ -183,7 +183,7 @@ def winter2020(request):
 
 
 def spring2020(request):
-    list1 = List2020.objects.filter(season="spring").order_by("-up_votes")
+    list1 = List2020.objects.filter(season="spring").order_by("up_votes")
 
     if request.method == "POST":
         up_vote = request.POST.get('up_votes', None)
