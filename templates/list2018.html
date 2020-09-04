@@ -52,7 +52,7 @@
                 </div>
                 <div class="col-md-8 px-3">
                   <div class="card-block px-3">
-                    <h4 class="card-title" style="color:white; font-family: 'Roboto', sans-serif;">{{ 25 - forloop.counter }}. {{items.name}}</h4>
+                    <h4 class="card-title" style="color:white; font-family: 'Roboto', sans-serif;">{{ forloop.revcounter }}. {{items.name}}</h4>
                     <p class="card-text" style="color:white; font-family: 'Roboto', sans-serif;">{{items.summary}}</p>
                     <p class="card-text" style="color:white; font-family: 'Roboto', sans-serif;"><b>IMDB Rating</b> :  {{items.rating}}</p>
                     {% if items.dubbing == True %}
