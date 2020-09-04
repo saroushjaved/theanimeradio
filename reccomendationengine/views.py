@@ -36,7 +36,10 @@ def recc3(request):
     val1= request.GET['answer3']
     if val1 == "0":
         #moved to next part not seen then anime shown
-        return render(request, "anime_recc_template.html")
+        anime_data =list( RecommendationDatabase.objects.filter(genre="mainstream"))
+        anime = random.choice(anime_data)
+        anime_list = random.sample(anime_data, 3)
+        return render(request, 'anime_recc_template.html', {"anime":anime, "anime_list":anime_list})
     else: 
         #code if they have not seen leading to next page
         return render(request, 'recommendation_engine_questions3.html')
