@@ -223,3 +223,6 @@ def spring2020(request):
                 return render(request, 'spring2020.html',{'spring2020':list1})
     else:    
         return render(request, 'spring2020.html',{'spring2020':list1})
+        
+def sitemap(request):
+	return render(request, 'sitemap.xml')

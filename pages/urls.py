@@ -25,4 +25,5 @@ urlpatterns = [
     path('summer2020', views.summer2020, name="summer2020"),
     path('winter2020', views.winter2020, name="winter2020"),
     path('spring2020', views.spring2020, name="spring2020"),
+    path('sitemap', views.sitemap, name="sitemap"),
 ]
