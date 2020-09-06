@@ -27,7 +27,7 @@ def signup(request):
                 return redirect('/usersreg/signup')
             
             else:
-                user = User.objects.create_user( username=username, first_name=first_name , last_name=last_name , password=password1)
+                user = User.objects.create_user( username=username, first_name=first_name , last_name=last_name , password=password1, email=email)
                 user.save()
                 messages.info(request, "Registration Successful" )
                 return redirect('/usersreg/signup')
