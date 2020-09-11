@@ -1,0 +1,70 @@
+{% extends 'pollingbase.html' %}
+{% load static %}
+{% block title %} Polls {% endblock %}
+{% block content %}
+
+  	<section class="hero-wrap js-fullheight" style="background-color: #2b0021;">
+  		<div class="container">
+  			<div class="row description js-fullheight align-items-center justify-content-center">
+  				<div class="col-md-8 text-center">
+  					<div class="text">
+  						<h1>Anime Polls </h1>
+  						<h4 class="mb-5">For, By and To the people</h4>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+  	</section>
+
+    <section>
+      {% for message in messages%}
+
+      <div class="alert alert-success">
+          <div class="container">
+              <div class="d-flex">
+                <div class="alert-icon">
+                  <i class="ion-ios-information-circle-outline"></i>
+                </div>
+                <p class="mb-0 ml-2"><b>Alert:</b> {{message}}</p>
+            </div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true"><i class="ion-ios-close"></i></span>
+            </button>
+          </div>
+        </div>
+
+
+      {% endfor %}
+</section>
+
+	{%for items in choices%}
+
+<br>
+<section>
+        <div class="container">
+          <div class="card" style="background-color:black;">
+            <div class="row ">
+              <div class="col-md-4">
+                  <img src="{{items.image.url}}" alt="" class="w-100">
+                </div>
+                <div class="col-md-8 px-3">
+                  <div class="card-block px-3">
+				    <br>
+                    <h4 class="card-title" style="color:white; font-family: 'Roboto', sans-serif;">{{items.choice}}</h4>
+										 <h4 class="card-title" style="color:white; font-family: 'Roboto', sans-serif;">{{items.votes}} Votes</h4>
+					                     <p class="card-text" style="color:white; font-family: 'Roboto', sans-serif;">{{items.choicedetail}}</p>
+					<form action="" method="POST">
+					 {% csrf_token %}
+					 <button type="submit" name="vote" value='{{items.choice}}' class="btn-primary" style="background-color:white; color:black; border-color: transparent;">VOTE {{items.choice}}</button>
+					</form> 
+				   </div>
+                </div>
+          </div>
+        </div>
+	</div>
+</section>
+<br>
+
+	{% endfor %}
+
+  {% endblock %}

@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'pages.apps.PagesConfig',
     'usersreg.apps.UsersregConfig',
     'reccomendationengine.apps.ReccomendationengineConfig',
+    'polling.apps.PollingConfig',
 ]
 
 MIDDLEWARE = [

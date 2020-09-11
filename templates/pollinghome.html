@@ -1,0 +1,50 @@
+{% extends 'pollingbase.html' %}
+{% load static %}
+{% block title %} Polls {% endblock %}
+{% block content %}
+
+  	<section class="hero-wrap js-fullheight" style="background-color: #2b0021;">
+  		<div class="container">
+  			<div class="row description js-fullheight align-items-center justify-content-center">
+  				<div class="col-md-8 text-center">
+  					<div class="text">
+  						<h1>Anime Polls </h1>
+  						<h4 class="mb-5">For, By and To the people</h4>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+  	</section>
+
+	<section>
+	
+<section class="hero-wrap js-fullheight" style="background-color: black;">
+    <div class="container">
+  	<div class="row description js-fullheight align-items-center justify-content-center">
+  		<div class="text">
+                    <div class="row">
+
+					 {% for items in polls %}
+
+                        <div class="col-md-4">
+							<div class="card">
+							<img src="{{items.poll_image.url}}" class="card-img-top" alt="image poll" >
+							<div class="card-body">
+								<h5 class="card-title">{{items.name_poll}}</h5>
+								<p class="card-text">{{items.poll_des}}</p>
+								<p class="card-text">Made On: {{items.pub_date}}</p>
+								 <form action=pollingpage>
+									<button type="submit" name="poll" value='{{items.poll_id}}'  class="btn btn-primary" style="background-color:black;  border-color: transparent;">GO VOTE</button>
+									</form>
+								</div>
+							</div>
+						</div>   
+
+					{% endfor %} 
+                 </div> 
+                  
+  	</div>
+  	</div>		
+    </div>
+
+  {% endblock %}
