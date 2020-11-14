@@ -35,11 +35,11 @@
 								<p class="card-text">{{items.poll_des}}</p>
 								<p class="card-text">Made On: {{items.pub_date}}</p>
 								 <form action=pollingpage>
-									<button type="submit" name="poll" value='{{items.poll_id}}'  class="btn btn-primary" style="background-color:black;  border-color: transparent;">GO VOTE</button>
-									</form>
-								</div>
+								<button type="submit" name="poll" value='{{items.poll_id}}'  class="btn btn-primary" style="background-color:black;  border-color: transparent;">GO VOTE</button>
+								</form>
 							</div>
-						</div>   
+						</div>
+			</div>   
 
 					{% endfor %} 
                  </div> 
@@ -47,5 +47,6 @@
   	</div>
   	</div>		
     </div>
+</section>
 
   {% endblock %}
