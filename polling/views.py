@@ -13,7 +13,7 @@ def polling_page(requests):
 
     poll_id = requests.GET["poll"]
     poll = Polls.objects.filter(poll_id=poll_id)
-    list_choice = Choices.objects.filter(Polls=poll[0])
+    list_choice = Choices.objects.filter(Polls=poll[0]).order_by("-votes")
     
     if requests.method == "POST":
         vote_choice = requests.POST.get("vote", None)
