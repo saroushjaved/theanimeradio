@@ -50,12 +50,12 @@
                 <div class="col-md-8 px-3">
                   <div class="card-block px-3">
 				    <br>
-                    <h4 class="card-title" style="color:black; font-family: 'Roboto', sans-serif;"><b>{{items.choice}}</b></h4>
+                    <h4 class="card-title" style="color:black; font-family: Arial Black;"><b>{{items.choice}}</b></h4>
 										 <h4 class="card-title" style="color:black; font-family: 'Roboto', sans-serif;">{{items.votes}} Votes</h4>
 					                     <p class="card-text" style="color:black; font-family: 'Roboto', sans-serif;">{{items.choicedetail}}</p>
 					<form action="" method="POST">
 					 {% csrf_token %}
-					 <button type="submit" name="vote" value='{{items.choice}}' class="btn-primary" style="background-color:black; color:white; padding: 20px; width: 200px; border-radius: 2px; margin: 5px; border-color: transparent;">VOTE {{items.choice}}</button>
+					 <button type="submit" name="vote" value='{{items.choice}}' class="btn-primary" style="background-color:black; color:white; padding: 20px; width: 200px; border-radius: 2px; margin: 5px; border-color: transparent;">VOTE</button>
 					</form> 
 				   </div>
                 </div>
