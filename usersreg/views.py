@@ -1,29 +1,31 @@
-from django.shortcuts import render, redirect, HttpResponse
+from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.models import User, auth
-import requests
 from django.contrib.auth import logout
 
 # Create your views here.
 def signup(request):
 
     if request.method == "POST":
-        first_name = request.POST['first_name']
-        last_name = request.POST['last_name']
-        password1 = request.POST['password1']
-        username=request.POST['username']
-        password2 = request.POST['password2']
-        email = request.POST['email']
+        first_name = request.POST.get('first_name', '').strip()
+        last_name = request.POST.get('last_name', '').strip()
+        password1 = request.POST.get('password1', '')
+        username = request.POST.get('username', '').strip()
+        password2 = request.POST.get('password2', '')
+        email = request.POST.get('email', '').strip()
 
         if len(password1) >= 8: 
             if password1 != password2:
-                messages.info(request, " Password must be 8 Character Long " )
+                messages.info(request, "Passwords do not match.")
                 return redirect('/usersreg/signup')
             elif User.objects.filter(email=email).exists():
                 messages.info(request, "Email is already taken" )
                 return redirect('/usersreg/signup')
             elif User.objects.filter(username=username).exists():
-                messages.info(request, "username is already taken" )
+                messages.info(request, "Username is already taken" )
+                return redirect('/usersreg/signup')
+            elif not username:
+                messages.info(request, "Username is required.")
                 return redirect('/usersreg/signup')
             
             else:
@@ -43,8 +45,8 @@ def login(request):
 
     if request.method == "POST":
 
-        username=request.POST['username']
-        password = request.POST['password']
+        username = request.POST.get('username', '').strip()
+        password = request.POST.get('password', '')
 
         user = auth.authenticate(username=username, password=password)
         
@@ -54,7 +56,7 @@ def login(request):
             return render(request, "login.html")
         else:
             messages.info(request, "Wrong Password or Username")
-            return render(request, 'signup.html')
+            return redirect('/usersreg/signup')
     
     else:
         return render(request, "signup.html")

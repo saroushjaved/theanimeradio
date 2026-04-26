@@ -8,7 +8,7 @@
     <h1 style="color:white; font-family: monospace; text-align:center;">{{anime.name}}</h1>
     <br>
     <div style="text-align:center;">
-    <img src="{{anime.image.url}}" style="width:25%; height:auto;">
+    <img src="{{anime.image.url}}" style="width:25%; height:auto;" alt="{{ anime.name }} anime poster">
     </div>
     <div style="text-align:center; padding:10px;"> 
     <a href="{{anime.crunchyroll}}" class="btn btn-warning" style="color:black;">WATCH NOW</a>
@@ -36,7 +36,7 @@
 					<div class="col-md-4">
 						<a href="{{items.info}}" target="_blank">
 						<div class="card">
-						  <img src="{{items.image.url}}" class="card-img-top" alt="...">
+						  <img src="{{items.image.url}}" class="card-img-top" alt="{{ items.name }} anime poster">
 						</div>
 						</a>
 					</div>

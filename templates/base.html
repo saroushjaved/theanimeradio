@@ -8,10 +8,19 @@
 </script>
 <script data-ad-client="ca-pub-8909412250491710" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
-    <title>{% block title %} Home {% endblock %}</title>
+    <title>{% block title %}{{ page_title|default:site_name }}{% endblock %}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="Home" content="The anime radio is a place for wonders. We offer the anime recommendation quiz which can help you instantly get good anime recommendations. We also have lists of anime which you can see with just once click.">  
+    <meta name="description" content="{{ page_description|default:site_description }}">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="{{ canonical_url }}">
+    <meta property="og:site_name" content="{{ site_name }}">
+    <meta property="og:title" content="{{ page_title|default:site_name }}">
+    <meta property="og:description" content="{{ page_description|default:site_description }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ canonical_url }}">
+    <meta property="og:image" content="{{ site_url }}{% static 'images/homepagemascot.jpg' %}">
+    <meta name="twitter:card" content="summary_large_image">
     
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap" rel="stylesheet">
 
@@ -43,7 +52,7 @@
 
 		<nav class="navbar navbar-expand-lg navbar-warning ftco_navbar bg-warning ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="/home">the anime radio</a>
+	      <a class="navbar-brand" href="{% url 'home' %}">the anime radio</a>
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
@@ -56,25 +65,25 @@
                 <b class="caret"></b>
               </a>
               <div class="dropdown-menu dropdown-menu-left">
-                <a href="/list2018" class="dropdown-item"><i class="mr-2"></i>2018</a>
-			        	<a href="/list2019" class="dropdown-item"><i class="mr-2"></i>2019</a>
+                <a href="{% url 'list2018' %}" class="dropdown-item"><i class="mr-2"></i>2018</a>
+			        	<a href="{% url 'list2019' %}" class="dropdown-item"><i class="mr-2"></i>2019</a>
                 <div class="dropdown-menu dropdown-menu-left">
 				        <a class="dropdown-item"><i class="mr-2"></i>2020</a>
                 <ul>
-                <li><a href="/winter2020" class="dropdown-item"><i class="mr-2"></i>Winter 2020</a></li>
-                <li><a href="/spring2020" class="dropdown-item"><i class="mr-2"></i>Spring 2020</a></li>
-                <li><a href="/summer2020" class="dropdown-item"><i class="mr-2"></i>Summer 2020</a></li>
+                <li><a href="{% url 'winter2020' %}" class="dropdown-item"><i class="mr-2"></i>Winter 2020</a></li>
+                <li><a href="{% url 'spring2020' %}" class="dropdown-item"><i class="mr-2"></i>Spring 2020</a></li>
+                <li><a href="{% url 'summer2020' %}" class="dropdown-item"><i class="mr-2"></i>Summer 2020</a></li>
                 </ul>
                 </div>
               </div>
-			  <li class="nav-item"><a href="/reccomendation/" class="nav-link icon d-flex align-items-center"><i class="ion-ios-laptop mr-2"></i>Recommendation</a></li>
-        <li class="nav-item"><a href="/polling/" class="nav-link icon d-flex align-items-center"><i class="ion-ios-brush mr-2"></i>POLLS</a></li>
-			  <li class="nav-item"><a href="/usersreg" class="nav-link icon d-flex align-items-center"><i class="ion-ios-arrow-dropright-circle mr-2"></i>Login</a></li>
+			  <li class="nav-item"><a href="/recommendation/" class="nav-link icon d-flex align-items-center"><i class="ion-ios-laptop mr-2"></i>Recommendation</a></li>
+        <li class="nav-item"><a href="{% url 'polling' %}" class="nav-link icon d-flex align-items-center"><i class="ion-ios-brush mr-2"></i>POLLS</a></li>
+			  <li class="nav-item"><a href="{% url 'signup' %}" class="nav-link icon d-flex align-items-center"><i class="ion-ios-arrow-dropright-circle mr-2"></i>Login</a></li>
 		    <li class="nav-item"><a href="https://artgallery.theanimeradio.com" class="nav-link icon d-flex align-items-center"><i class="ion-ios-brush mr-2"></i>Art Gallery</a></li>
 	          <li class="nav-item"><a href="https://twitter.com/TheAnimeRadio1?s=09" class="nav-link icon d-flex align-items-center"><i class="ion-logo-twitter"></i></a></li>
-            <li class="nav-item"><a href="http://www.instagram.com/theanimeradio" class="nav-link icon d-flex align-items-center"><i class="ion-logo-instagram"></i></a></li>
+            <li class="nav-item"><a href="https://www.instagram.com/theanimeradio" class="nav-link icon d-flex align-items-center"><i class="ion-logo-instagram"></i></a></li>
             {% if user.is_authenticated %}
-            <li class="nav-item"><a href="/usersreg/loginpage" class="nav-link icon d-flex align-items-center">{{user.username}}</a></li>
+            <li class="nav-item"><a href="{% url 'loginpage' %}" class="nav-link icon d-flex align-items-center">{{user.username}}</a></li>
             {% endif %}
 	        </ul>
 	      </div>

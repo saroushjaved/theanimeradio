@@ -1,44 +1,50 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from django.db.models import F
 from polling.models import Polls, Choices, VotePolls
-from django.contrib import auth, messages
+from django.contrib import messages
 
 # Create your views here.
-def polling(requests):
+def polling(request):
     polls = Polls.objects.all().order_by("-pub_date")
    
-    return render(requests, 'pollinghome.html', {"polls":polls})
+    return render(
+        request,
+        'pollinghome.html',
+        {
+            "polls": polls,
+            "page_title": "Anime Polls | The Anime Radio",
+            "page_description": "Vote in anime polls and compare community favorites on The Anime Radio.",
+        },
+    )
 
-def polling_page(requests):
+def polling_page(request):
 
-    poll_id = requests.GET["poll"]
-    poll = Polls.objects.filter(poll_id=poll_id)
-    list_choice = Choices.objects.filter(Polls=poll[0]).order_by("-votes")
+    poll_id = request.GET.get("poll")
+    poll = get_object_or_404(Polls, poll_id=poll_id)
+    list_choice = Choices.objects.filter(Polls=poll).order_by("-votes")
     
-    if requests.method == "POST":
-        vote_choice = requests.POST.get("vote", None)
-        userid = requests.user.id
+    if request.method == "POST":
+        vote_choice = request.POST.get("vote")
 
-        if userid == None:
-        	userid = 0
-        else:
-            pass 
+        if not vote_choice:
+            messages.info(request, "Please choose an option before voting.")
+            return render(request, "pollingpage.html", {"choices": list_choice})
 
-        if requests.user.is_authenticated:
-            if VotePolls.objects.filter(user=userid, poll=poll_id).exists():
-                messages.info(requests, "You Have Already Voted for this POLL")
-                return render(requests, "pollingpage.html", {"choices":list_choice})
-            else:
-                VotePolls.objects.create(user=userid, poll=poll_id)
-                Choices.objects.filter(choice=vote_choice).update(votes=F("votes")+1)
-                messages.info(requests, "YOU HAVE UP VOTED {}".format(vote_choice))
-                return render(requests, "pollingpage.html", {"choices":list_choice})
-        else:
-            messages.info(requests, "Please Login to Vote")
-            return render(requests, "pollingpage.html", {"choices":list_choice})
+        if not request.user.is_authenticated:
+            messages.info(request, "Please log in to vote.")
+            return render(request, "pollingpage.html", {"choices": list_choice})
+
+        if VotePolls.objects.filter(user=request.user.id, poll=poll.poll_id).exists():
+            messages.info(request, "You have already voted in this poll.")
+            return render(request, "pollingpage.html", {"choices": list_choice})
+
+        VotePolls.objects.create(user=request.user.id, poll=poll.poll_id)
+        Choices.objects.filter(Polls=poll, choice=vote_choice).update(votes=F("votes") + 1)
+        messages.info(request, f"You voted for {vote_choice}.")
+        return render(request, "pollingpage.html", {"choices": list_choice})
 
     else:
-        return render(requests, "pollingpage.html", {"choices":list_choice})
+        return render(request, "pollingpage.html", {"choices": list_choice})
         
 
 

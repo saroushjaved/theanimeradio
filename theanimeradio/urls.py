@@ -17,12 +17,16 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from pages import views as page_views
 
 urlpatterns = [
     path("",include("pages.urls")),
     path("usersreg/", include("usersreg.urls")),
     path("reccomendation/", include("reccomendationengine.urls")),
+    path("recommendation/", include("reccomendationengine.urls")),
     path("polling/", include("polling.urls")),
+    path("sitemap.xml", page_views.sitemap, name="sitemap"),
+    path("robots.txt", page_views.robots_txt, name="robots_txt"),
     path('admin/', admin.site.urls),
 ]
 

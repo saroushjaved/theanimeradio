@@ -3,10 +3,19 @@
 <html lang="en">
   <head>
  
-    <title>anime recommendation quiz</title>
+    <title>{{ page_title|default:"Anime Recommendation Quiz | The Anime Radio" }}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="anime recommendation quiz" content="Anime Recommendation Quiz is a web app that can help you get instant anime recommendations personalized for you. ">  
+    <meta name="description" content="{{ page_description|default:'Anime Recommendation Quiz is a web app that can help you get instant anime recommendations personalized for you.' }}">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="{{ canonical_url }}">
+    <meta property="og:site_name" content="{{ site_name }}">
+    <meta property="og:title" content="{{ page_title|default:'Anime Recommendation Quiz | The Anime Radio' }}">
+    <meta property="og:description" content="{{ page_description|default:'Answer a few questions and get an anime recommendation from The Anime Radio.' }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ canonical_url }}">
+    <meta property="og:image" content="{{ site_url }}{% static 'images/recommendation/1.png' %}">
+    <meta name="twitter:card" content="summary_large_image">
     
     
     
@@ -40,18 +49,18 @@
 
 		<nav class="navbar navbar-expand-lg navbar-warning ftco_navbar bg-warning ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="/home">the anime radio</a>
+	      <a class="navbar-brand" href="{% url 'home' %}">the anime radio</a>
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-			  <li class="nav-item"><a href="/home" class="nav-link icon d-flex align-items-center"><i class="ion-ios-arrow-dropleft-circle mr-2"></i>BACK TO HOME</a></li>
+			  <li class="nav-item"><a href="{% url 'home' %}" class="nav-link icon d-flex align-items-center"><i class="ion-ios-arrow-dropleft-circle mr-2"></i>BACK TO HOME</a></li>
 	        
 	          <li class="nav-item"><a href="https://twitter.com/TheAnimeRadio1?s=09" class="nav-link icon d-flex align-items-center"><i class="ion-logo-twitter"></i></a></li>
-            <li class="nav-item"><a href="http://www.instagram.com/theanimeradio" class="nav-link icon d-flex align-items-center"><i class="ion-logo-instagram"></i></a></li>
+            <li class="nav-item"><a href="https://www.instagram.com/theanimeradio" class="nav-link icon d-flex align-items-center"><i class="ion-logo-instagram"></i></a></li>
             {% if user.is_authenticated %}
-            <li class="nav-item"><a href="/usersreg/loginpage" class="nav-link icon d-flex align-items-center">{{user.username}}</a></li>
+            <li class="nav-item"><a href="{% url 'loginpage' %}" class="nav-link icon d-flex align-items-center">{{user.username}}</a></li>
             {% endif %}
 	        </ul>
 	      </div>
